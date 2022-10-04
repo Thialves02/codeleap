@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
     align-items: center;
     width: 100%;
     background-color: #000;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding:0 40px;
     &.main{
         height: 80px;
@@ -13,10 +13,28 @@ export const HeaderContainer = styled.div`
 
     &.post{
         height: 50px;
-        /* justify-content: space-around; */
 
         h1 {
             font-size: 18px;
         }
+    }
+`
+
+export const AditionalContent = styled.div`  
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+    align-items: center;
+
+    p {
+        color:#fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    svg{
+        color: #fff;
+        margin-left: 20px;
+        cursor: pointer;
     }
 `
