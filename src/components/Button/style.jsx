@@ -1,27 +1,31 @@
 import styled from "styled-components"
 
-export const ButtonContainer = styled.button`
-    width:200px;
-    height:40px;
-    border-radius:5px ;
-    background-color:#6558F5;
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: end;
+`
+
+export const ButtonContent = styled.button`
+    width:80px;
+    height:30px;
+    border-radius:3px ;
+    background-color:#000000;
     border:none ;
     color: #ffff;
     cursor: pointer;
-    font-size:17px;
     font-weight:bold;
     transition: all ease .5s ;
 
-    &.grande{
+    &.modal{
         width:100%;
     }
 
     :hover {
-        background-color: #3c3497;
+        background-color: #0000b5;
     }
 
     :disabled {
-	    background-color: #2b2660;
+	    background-color: #363638;
         cursor: default;
     }
 `
