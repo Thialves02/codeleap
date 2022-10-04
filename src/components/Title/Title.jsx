@@ -13,5 +13,6 @@ Title.propTypes = {
 }
 
 Title.defaultProps = {
-    label: 'CodeLeap Text'
+    label: 'CodeLeap Text',
+    className: 'default',
 }

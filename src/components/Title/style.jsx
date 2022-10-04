@@ -3,11 +3,11 @@ import styled from "styled-components"
 export const TitleContent = styled.h1`
     font-size: 22px;
 
-    .black{
+    &.default{
         color:#101010
     }
 
-    .white {
+    &.header {
         color:#ffffff;
     }
 `
