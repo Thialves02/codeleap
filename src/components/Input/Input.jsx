@@ -1,8 +1,14 @@
 import React from 'react'
-import { InputContainer } from './style'
+import { LabelElement } from '../Textarea/style'
+import { InputContainer, InputElement } from './style'
 
-export default function Input({ ...rest }) {
+export default function Input({ label, ...rest }) {
     return (
-        <InputContainer {...rest} />
+        <InputContainer >
+            {
+                label && <LabelElement>{label}</LabelElement>
+            }
+            <InputElement {...rest} />
+        </InputContainer>
     )
 }

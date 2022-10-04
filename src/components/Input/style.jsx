@@ -1,10 +1,14 @@
 import styled from "styled-components"
 
-export const InputContainer = styled.input`
+export const InputContainer = styled.div`
+    margin: 15px 0;
+`
+
+export const InputElement = styled.input`
     width: 100%;
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     outline: none;
-    padding: 10px;
+    padding: 0 10px;
     border: 1px solid #777777;
 `
