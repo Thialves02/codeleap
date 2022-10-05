@@ -17,15 +17,24 @@ export const ButtonContent = styled.button`
     transition: all ease .5s ;
 
     &.modal{
-        width:100%;
+        color: #000000;
+        background-color: #ffff;
+        border: 1px solid #000000;
+
+        :not([disabled]):hover {
+            color: #ffff;
+            background-color:#000000;
+        }
     }
 
-    :hover {
-        background-color: #0000b5;
+    :not([disabled]):hover {
+        color: #000000;
+        background-color: #ffff;
+        border: 1px solid #000000;
     }
 
     :disabled {
-	    background-color: #363638;
+	    background-color: #787878;
         cursor: default;
     }
 `

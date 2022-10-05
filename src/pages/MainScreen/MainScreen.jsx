@@ -10,11 +10,11 @@ import { Context } from '../../context/CtxApp'
 import { MainScreenContainer, MainScreenContent } from './style'
 
 export default function MainScreen() {
-    const { username, postTitle, postContent } = useContext(Context)
+    const { username, postTitle, postContent, openUpdateModal, setOpenUpdateModal } = useContext(Context)
     const [posts, setPosts] = useState([])
     const [rerender, setRerender] = useState(false)
     const [openDeleteModal, setOpenDeleteModal] = useState(false)
-    const [openUpdateModal, setOpenUpdateModal] = useState(false)
+
     const [currentId, setCurrentId] = useState('')
 
     useEffect(() => {
@@ -126,6 +126,7 @@ export default function MainScreen() {
                 <ModalContainer>
                     <InfoContainer
                         className="main"
+                        type="modal"
                         title="Edit Item"
                         inputLabel="Title"
                         inputName="postTitle"
@@ -136,9 +137,6 @@ export default function MainScreen() {
                         buttonLabel="SAVE"
                         onClickBtn={editPost}
                     />
-                    {/* <Button
-                            label={"teste"}
-                        /> */}
                 </ModalContainer>
             }
         </MainScreenContainer>

@@ -21,4 +21,6 @@ export const MainScreenContent = styled.section`
     ${media('mobile')}{
         width:100%;
     }
+
+
 `

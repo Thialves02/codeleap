@@ -8,7 +8,8 @@ export default createGlobalStyle`
         font-family: 'Roboto', sans-serif;
     }
 
-    body,html,main {
+    body,html {
         height: 100vh;
+        background-color: #dddddd;
     }
 `

@@ -17,5 +17,4 @@ Button.propTypes = {
 Button.defaultProps = {
     label: 'CodeLeap',
     className: 'default',
-    disabled: 'disabled'
 }

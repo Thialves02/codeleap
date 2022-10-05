@@ -7,7 +7,7 @@ import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/CtxApp'
 
-export default function Header({ title, type, userPost, ...rest }) {
+export default function Header({ title, type, userPost, deletePost, updatePost, ...rest }) {
     const { username, userNameRemove } = useContext(Context)
     const navigate = useNavigate();
 
@@ -16,7 +16,6 @@ export default function Header({ title, type, userPost, ...rest }) {
         userNameRemove()
     }
 
-    console.log(userPost)
     return (
         <HeaderContainer
             {...rest}
@@ -32,8 +31,8 @@ export default function Header({ title, type, userPost, ...rest }) {
                     ) : (
                         userPost == username && (
                             <>
-                                <FontAwesomeIcon icon={faTrash} />
-                                <FontAwesomeIcon icon={faPenToSquare} />
+                                <FontAwesomeIcon icon={faTrash} onClick={deletePost} />
+                                <FontAwesomeIcon icon={faPenToSquare} onClick={updatePost} />
                             </>
                         )
                     )
