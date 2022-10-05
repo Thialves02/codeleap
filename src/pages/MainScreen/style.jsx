@@ -12,6 +12,7 @@ export const MainScreenContent = styled.section`
     align-items: center;
     width: 60%;
     background-color: #ffff;
+    padding-bottom: 50px;
 
     ${media('tablet')}{
         width:80%;
