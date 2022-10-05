@@ -4,12 +4,12 @@ import { PostContainer, PostContent, PostInfo } from './style'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
-export default function Post({ post }) {
-    const [postTime, setPostTime] = useState('')
+export default function Post({ post, deletePost, updatePost }) {
+    const [postTime, setPostTime] = useState()
 
     useEffect(() => {
-        setPostTime(timeDifference())
-    }, [])
+        setPostTime(timeDifference)
+    }, [postTime === undefined, post])
 
     const timeDifference = () => {
         //Variables of Date now and created post
@@ -29,7 +29,7 @@ export default function Post({ post }) {
 
         //Logic to return the difference
         if (daysDifference > 0) {
-            return `${daysDifference} ${daysDifference === '1' ? 'day' : 'days'} `
+            return `${daysDifference} ${daysDifference === '1' ? 'day' : 'days'}`
         } else if (hoursDifference > 0) {
             return `${hoursDifference} ${hoursDifference === '1' ? 'hour' : 'hours'}`
         } else if (minutesDifference > 0) {
@@ -44,6 +44,10 @@ export default function Post({ post }) {
             <Header
                 title={post.title}
                 className="post"
+                type="post"
+                userPost={post.username}
+                deletePost={deletePost}
+                updatePost={updatePost}
             />
             <PostInfo>
                 <p>@{post.username}</p>
