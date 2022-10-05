@@ -9,19 +9,21 @@ export const Actions = {
             .catch((error) => alert(error))
     },
 
-    post: (body) => axios.post(Actions.baseUrl, body).then((response) => console.log(response))
-        .catch((error) => alert(error)),
+    post: (body) => {
+        return axios.post(Actions.baseUrl, body)
+            .then((response) => response)
+            .catch((error) => alert(error))
+    },
 
     update: (id, body) => {
-        return axios.put(`${Actions.baseUrl}/${id}`, {
-            body: JSON.stringify(body)
-        }).then((response) => console.log(response))
+        return axios.patch(`${Actions.baseUrl}${id}/`, body)
+            .then((response) => (response.data))
             .catch((error) => alert(error))
     },
 
     delete: (id) => {
-        return axios.delete(`${Actions.baseUrl}/${id}`)
-            .then((response) => console.log(response))
+        return axios.delete(`${Actions.baseUrl}${id}/`)
+            .then((response) => response)
             .catch((error) => alert(error))
     }
 }
