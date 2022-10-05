@@ -3,11 +3,12 @@ import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import Title from '../../components/Title/Title'
 import { Context } from '../../context/CtxApp'
+import CloseBtn from '../CloseBtn/CloseBtn'
 import Textarea from '../Textarea/Textarea'
 import { InfoUserContainer } from './style'
 
-export default function InfoContainer({ className, title, titleColor, text, inputLabel, inputName, inputPlaceholder, textareaLabel, textareaName, textareaPlaceholder, buttonLabel, onClickBtn }) {
-    const { username, setUsername, postTitle, postContent, setPostContent, setPostTitle } = useContext(Context)
+export default function InfoContainer({ className, type, title, titleColor, text, inputLabel, inputName, inputPlaceholder, textareaLabel, textareaName, textareaPlaceholder, buttonLabel, onClickBtn }) {
+    const { username, setUsername, postTitle, postContent, setPostContent, setPostTitle, setOpenUpdateModal } = useContext(Context)
     const [btnDisabled, setBtnDisabled] = useState(true)
     const [currentInputName, setCurrentInputName] = useState("")
 
@@ -40,10 +41,17 @@ export default function InfoContainer({ className, title, titleColor, text, inpu
         setCurrentInputName(inputName)
     }
 
+    const closeModal = () => {
+        setOpenUpdateModal(false)
+    }
+
     return (
         <InfoUserContainer
             className={className}
         >
+            {
+                type === 'modal' && <CloseBtn className="close-btn" onClick={closeModal} />
+            }
             <Title
                 label={title}
                 titleColor={titleColor}
