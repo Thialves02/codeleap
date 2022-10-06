@@ -12,6 +12,11 @@ export const InfoUserContainer = styled.div`
         width: 80%;
     }
 
+    &.modal{
+        width: 80%;
+        max-width: 900px;
+    }
+
     div.close-btn{
         top: -12px;
         right:-12px;

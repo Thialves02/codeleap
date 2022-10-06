@@ -1,20 +1,27 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import Title from '../../components/Title/Title'
-import { Context } from '../../context/CtxApp'
 import CloseBtn from '../CloseBtn/CloseBtn'
 import Textarea from '../Textarea/Textarea'
 import { InfoUserContainer } from './style'
+import { useSelector, useDispatch } from 'react-redux'
+import { getUsername, getPostTitle, getPostContent, openUpdateModal } from '../../actions/Actions'
 
 export default function InfoContainer({ className, type, title, titleColor, text, inputLabel, inputName, inputPlaceholder, textareaLabel, textareaName, textareaPlaceholder, buttonLabel, onClickBtn }) {
-    const { username, setUsername, postTitle, postContent, setPostContent, setPostTitle, setOpenUpdateModal } = useContext(Context)
+    const dispatch = useDispatch()
+
     const [btnDisabled, setBtnDisabled] = useState(true)
     const [currentInputName, setCurrentInputName] = useState("")
+
+    const username = useSelector(state => state.getUsername.inputValue)
+    const postTitle = useSelector(state => state.getPostTitle.inputValue)
+    const postContent = useSelector(state => state.getPostContent.inputValue)
 
     useEffect(() => {
         BtnState()
     }, [username, postTitle, postContent])
+
     //Function to control the state of disabled button
     const BtnState = () => {
         //Check the current input name to verify correctly the button to disable or active
@@ -31,18 +38,19 @@ export default function InfoContainer({ className, type, title, titleColor, text
         var inputValue = inputElement.target.value
 
         if (inputName === "username") {
-            setUsername(inputValue)
+            dispatch(getUsername(inputValue))
+            localStorage.setItem("username", inputValue);
         } else if (inputName === "postTitle") {
-            setPostTitle(inputValue)
+            dispatch(getPostTitle(inputValue))
         } else if (inputName === "postContent") {
-            setPostContent(inputValue)
+            dispatch(getPostContent(inputValue))
         }
 
         setCurrentInputName(inputName)
     }
 
     const closeModal = () => {
-        setOpenUpdateModal(false)
+        dispatch(openUpdateModal(false))
     }
 
     return (

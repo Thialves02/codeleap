@@ -11,6 +11,7 @@ export const MainScreenContent = styled.section`
     flex-direction: column;
     align-items: center;
     width: 60%;
+    max-width:1200px;
     background-color: #ffff;
     padding-bottom: 50px;
 

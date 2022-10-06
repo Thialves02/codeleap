@@ -1,19 +1,19 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Title from '../Title/Title'
 import { AditionalContent, HeaderContainer } from './style'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
-import { Context } from '../../context/CtxApp'
+import { useSelector } from 'react-redux'
 
 export default function Header({ title, type, userPost, deletePost, updatePost, ...rest }) {
-    const { username, userNameRemove } = useContext(Context)
+    const username = useSelector(state => state.getUsername.inputValue)
     const navigate = useNavigate();
 
     const logout = () => {
         navigate('/');
-        userNameRemove()
+        localStorage.removeItem('username');
     }
 
     return (
@@ -26,10 +26,10 @@ export default function Header({ title, type, userPost, deletePost, updatePost, 
             />
             <AditionalContent>
                 {
-                    type == 'main' ? (
+                    type === 'main' ? (
                         <p onClick={logout}>Logout</p>
                     ) : (
-                        userPost == username && (
+                        userPost === username && (
                             <>
                                 <FontAwesomeIcon icon={faTrash} onClick={deletePost} />
                                 <FontAwesomeIcon icon={faPenToSquare} onClick={updatePost} />

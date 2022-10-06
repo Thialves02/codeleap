@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
 import InfoContainer from '../../components/InfoContainer/InfoContainer'
 import { SignUpContainer } from './style'
 import { useNavigate } from 'react-router-dom';
-import { Context } from '../../context/CtxApp';
 
 export default function Signup() {
     const navigate = useNavigate();
