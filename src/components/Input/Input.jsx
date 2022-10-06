@@ -1,6 +1,7 @@
 import React from 'react'
 import { LabelElement } from '../Textarea/style'
 import { InputContainer, InputElement } from './style'
+import PropTypes from 'prop-types'
 
 export default function Input({ label, ...rest }) {
     return (
@@ -11,4 +12,12 @@ export default function Input({ label, ...rest }) {
             <InputElement {...rest} />
         </InputContainer>
     )
+}
+
+Input.propTypes = {
+    label: PropTypes.string.isRequired
+}
+
+Input.defaultProps = {
+    label: 'CodeLeap',
 }

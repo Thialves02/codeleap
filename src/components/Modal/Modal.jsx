@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import { ModalContainer, ModalElement, OptionsContainer } from './style'
+import PropTypes from 'prop-types'
 
 export default function Modal({ label, closeModal, deletePost }) {
     return (
@@ -22,4 +23,12 @@ export default function Modal({ label, closeModal, deletePost }) {
             </ModalElement>
         </ModalContainer>
     )
+}
+
+Modal.propTypes = {
+    label: PropTypes.string.isRequired
+}
+
+Modal.defaultProps = {
+    label: 'CodeLeap'
 }
