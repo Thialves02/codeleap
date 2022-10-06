@@ -1,29 +1,27 @@
-const axios = require('axios').default;
+export const getUsername = (value) => {
+    return {
+        type: "username",
+        inputValue: value
+    }
+}
 
-export const Actions = {
-    baseUrl: "https://dev.codeleap.co.uk/careers/",
+export const getPostTitle = (value) => {
+    return {
+        type: "title",
+        inputValue: value
+    }
+}
 
-    getAll: () => {
-        return axios.get(Actions.baseUrl)
-            .then((response) => response.data.results)
-            .catch((error) => alert(error))
-    },
+export const getPostContent = (value) => {
+    return {
+        type: "content",
+        inputValue: value
+    }
+}
 
-    post: (body) => {
-        return axios.post(Actions.baseUrl, body)
-            .then((response) => response)
-            .catch((error) => alert(error))
-    },
-
-    update: (id, body) => {
-        return axios.patch(`${Actions.baseUrl}${id}/`, body)
-            .then((response) => (response.data))
-            .catch((error) => alert(error))
-    },
-
-    delete: (id) => {
-        return axios.delete(`${Actions.baseUrl}${id}/`)
-            .then((response) => response)
-            .catch((error) => alert(error))
+export const openUpdateModal = (value) => {
+    return {
+        type: "updateModal",
+        open: value
     }
 }
