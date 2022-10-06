@@ -6,20 +6,23 @@ import {
 import MainScreen from "./pages/MainScreen/MainScreen";
 import Signup from "./pages/Signup/Signup";
 import GlobalStyle from "./assets/style/global";
-import CtxApp from "./context/CtxApp"
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <CtxApp>
-        <Router>
-          <Routes>
+      <Router>
+        <Routes>
+          <Route element={<PublicRoute />}>
             <Route path="/" element={<Signup />}></Route>
+          </Route>
+          <Route element={<PrivateRoute />}>
             <Route path="/main" element={<MainScreen />}></Route>
-          </Routes>
-        </Router>
-      </CtxApp>
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 }
