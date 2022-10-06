@@ -14,6 +14,7 @@ export const MainScreenContent = styled.section`
     max-width:1200px;
     background-color: #ffff;
     padding-bottom: 50px;
+    min-height: 100vh;
 
     ${media('tablet')}{
         width:80%;
